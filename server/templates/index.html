@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #chat-container { width: 50%; margin: auto; }
+        #chat { border: 1px solid #ccc; padding: 20px; }
+        #question { width: 100%; }
+        #submit { margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <h1>Chatbot</h1>
+        <div id="chat"></div>
+        <input type="text" id="question" placeholder="Ask a question...">
+        <button id="submit">Submit</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#submit').click(function() {
+                var question = $('#question').val();
+                $.post('/ask', { question: question }, function(data) {
+                    $('#chat').append('<div><strong>You:</strong> ' + question + '</div>');
+                    $('#chat').append('<div><strong>Bot:</strong> ' + data.answer + '</div>');
+                    $('#question').val('');
+                }).fail(function() {
+                    alert('Error: No answer found.');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
