@@ -13,7 +13,7 @@ CORS(app)  # Enable CORS for all routes
 #         tax_model = pickle.load(file)
 #     return tax_model
 
-chatbot_model = joblib.load('chatbot_model.pkl')
+chatbot_model = joblib.load('./server/chatbot_model.pkl')
 # tax_model = load_tax_model()
 
 @app.route('/ask', methods=['POST'])
