@@ -1,7 +1,22 @@
 
 # TaxMate
 
-TaxMate is a Next.js-based web application designed to simplify tax-related processes for users. Leveraging AI, it provides insights and recommendations by analyzing uploaded tax documents, such as AIS (Advanced Information System) files, and helps users make informed decisions on tax schemes and saving investments.
+TaxMate is an intelligent, AI-powered web application designed to simplify tax filing and preparation for individuals and small business owners. By addressing the complexities of tax regulations and reducing the risk of manual entry errors, TaxMate helps users save time and avoid common filing challenges. It automates tax analysis through machine learning and provides guided support to streamline the tax filing process.
+
+## Problem Overview
+
+Filing taxes is often a complicated and time-consuming process, especially for those unfamiliar with tax regulations. Common challenges include:
+- Expense Categorization: Difficulty in accurately categorizing expenses for tax purposes.
+- Deduction Management: Risk of missing eligible deductions.
+- Error Reduction: High potential for manual errors that can lead to penalties or missed refunds.
+These challenges can lead to increased tax liabilities and added stress, which is why TaxMate is designed to simplify the process.
+
+## How TaxMate Solves These Issues
+
+The AI-Based Tax Filing Assistant in TaxMate allows users to upload their bank statements and other financial documents, securely analyzing them to generate an Annual Information Statement (AIS) report. This report categorizes and summarizes financial data, improving efficiency and reducing the time and effort required for tax filing. The app also features:
+- Built-in Chatbot: Quick answers to tax-filing-related questions with reliable guidance on deductions, tax queries, and regulatory information.
+- Automated Insights: The system's machine learning algorithms ensure accurate, personalized support tailored to each user’s financial profile.
+By automating document analysis and providing accessible guidance, TaxMate helps users make informed financial decisions and file taxes accurately and confidently.
 
 ## Features
 
