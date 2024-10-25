@@ -1,6 +1,3 @@
-Here's an updated README to reflect your project, layout, and functionalities for "TaxMate":
-
----
 
 # TaxMate
 
