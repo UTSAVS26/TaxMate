@@ -6,6 +6,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import make_pipeline
 from sklearn.model_selection import train_test_split
 import joblib
+
 """
 # Step 1: Load JSON data
 with open('data.json') as f:
