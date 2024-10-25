@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# TaxMate
+
+TaxMate is a Next.js-based web application designed to simplify tax-related processes for users. Leveraging AI, it provides insights and recommendations by analyzing uploaded tax documents, such as AIS (Advanced Information System) files, and helps users make informed decisions on tax schemes and saving investments.
+
+## Features
+
+- **AIS Document Upload**: Upload AIS (or other tax-related documents) in PDF format to receive detailed, customized analysis.
+- **Scheme Selection**: Choose between Old or New tax schemes for tailored insights.
+- **User Profile Summary**: View personalized insights based on the selected scheme and uploaded document.
+- **Responsive Design**: Accessible on all devices with a sleek, modern look and animated components.
+- **Interactive Chat**: Integrated chatbot (Lex) for real-time tax assistance.
+
+## Tech Stack
+
+- **Frontend**: Next.js, Tailwind CSS, Framer Motion, Lucide Icons
+- **Components**: Built using Next.js components with a structured layout, Tailwind CSS styling for responsive design, and Framer Motion for animations.
+  
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Node.js](https://nodejs.org/en/download/)
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/docs/installation)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/utsavs26/taxmate.git
+   cd taxmate
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Run the development server**
+   ```bash
+   npm run dev
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+4. Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### File Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **`components/`**: Contains reusable UI components (buttons, cards, dialog boxes).
+- **`pages/`**: Houses main pages, with `HomePage.js` set up as the entry point for the landing page.
+- **`public/`**: Contains images and icons used in the application.
+- **`styles/`**: Contains global styling, including Tailwind configuration.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+We welcome contributions! Please open an issue or submit a pull request to suggest improvements or report bugs.
