@@ -1,3 +1,4 @@
+# Frontend Dockerfile
 # Stage 1: Build the React application
 FROM node:18 AS build
 
@@ -5,13 +6,13 @@ FROM node:18 AS build
 WORKDIR /app
 
 # Copy package.json and package-lock.json (if available)
-COPY package*.json ./
+COPY client/package*.json ./
 
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the application code
-COPY . .
+COPY client/ .
 
 # Build the application
 RUN npm run build
