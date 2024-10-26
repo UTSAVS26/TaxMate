@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import joblib
 import os
+import json
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -39,17 +40,79 @@ def chatbot_model_response(user_message):
     response = chatbot_model.predict([user_message])
     return response[0]
 
-# 2. Tax Filing Bot Endpoint (currently placeholder)
-@app.route('/generate-ais', methods=['POST'])
-def generate_ais():
-    data = request.files.get('bank_statement')
-    if data is None:
-        return jsonify({'error': 'No bank statement uploaded'}), 400
+# # 2. Tax Filing Bot Endpoint (currently placeholder)
+# @app.route('/generate-ais', methods=['POST'])
+# def generate_ais():
+#     data = request.files.get('bank_statement')
+#     if data is None:
+#         return jsonify({'error': 'No bank statement uploaded'}), 400
 
-    # Placeholder response for tax model processing
-    # Uncomment and implement once the tax model is ready
-    # ais_report = tax_model_response(data)
-    return jsonify({'AIS_report': 'AIS report generation is currently disabled.'})
+#     # Placeholder response for tax model processing
+#     # Uncomment and implement once the tax model is ready
+#     # ais_report = tax_model_response(data)
+#     return jsonify({'AIS_report': 'AIS report generation is currently disabled.'})
+
+UPLOAD_FOLDER = 'uploads'
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+# Endpoint to accept a PDF and regime information
+@app.route('/upload_pdf_and_regime', methods=['GET'])
+def upload():
+    # Get the regime information from query parameters
+    regime = request.args.get('regime')
+    
+    # Get the PDF file from the query parameters
+    pdf_file = request.args.get('pdf')  # This would typically be a URL or base64 encoded content
+
+    # Check if regime is provided
+    if not regime:
+        return jsonify({"error": "Regime information is required"}), 400
+
+    # Check if pdf_file is provided
+    if not pdf_file:
+        return jsonify({"error": "PDF file is required"}), 400
+
+    # Save the PDF file (you would need to handle the actual file input)
+    try:
+        pdf_path = os.path.join(UPLOAD_FOLDER, 'uploaded_file.pdf')
+        with open(pdf_path, 'wb') as f:
+            f.write(request.get(pdf_file).content)  # assuming pdf_file is a URL
+
+        # For demonstration, we will return the received information
+        response = {
+            "regime": regime,
+            "message": "PDF uploaded successfully",
+            "pdf_path": pdf_path
+        }
+        return jsonify(response), 200
+    
+    
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+    
+## Endpoint to send predictions
+@app.route('/get_model_output', methods=['POST'])
+def predict():
+    try:
+        # Load data from the JSON file
+        with open('./json_file/processed_income_tax.json', 'r') as f:
+            data = json.load(f)
+        
+        # Assuming your JSON structure has keys 'output1', 'output2', and 'output3'
+        output1 = data['income']
+        output2 = data['taxable_income']
+        output3 = data['tax']
+        
+        # Send response as JSON
+        response = {
+            "income": output1,
+            "taxable_income": output2,
+            "tax": output3
+        }
+        return jsonify(response)
+    
+    except Exception as e:
+        return jsonify({"error": str(e)})
 
 # Run the Flask application
 if __name__ == '__main__':

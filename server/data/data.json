@@ -1,0 +1,184 @@
+{
+  "transactions": [
+    {
+      "date": "20-08-23",
+      "sno": "1",
+      "narration": "Company Reimbursement - Infosys Ltd",
+      "debit": 3419.29,
+      "credit": 0,
+      "balance": 46580.71,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "14-06-23",
+      "sno": "2",
+      "narration": "National Pension Scheme Investment - ICICI",
+      "debit": 5761.39,
+      "credit": 0,
+      "balance": 40819.32,
+      "tax_deduction_category": "Section 80CCD"
+    },
+    {
+      "date": "06-09-23",
+      "sno": "3",
+      "narration": "Consulting Payment - Infosys Ltd",
+      "debit": 0,
+      "credit": 5337.73,
+      "balance": 46157.05,
+      "tax_deduction_category": "Taxable income"
+    },
+    {
+      "date": "05-11-23",
+      "sno": "4",
+      "narration": "ICICI Bank ATM",
+      "debit": 2089.69,
+      "credit": 0,
+      "balance": 44067.36,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "12-02-23",
+      "sno": "5",
+      "narration": "Gift Transfer - Mr. Ajay Sharma",
+      "debit": 0,
+      "credit": 17790.75,
+      "balance": 61858.11,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "26-09-23",
+      "sno": "6",
+      "narration": "Company Reimbursement - TCS Ltd",
+      "debit": 3101,
+      "credit": 0,
+      "balance": 58757.11,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "28-02-23",
+      "sno": "261",
+      "narration": "Income Tax Department - Govt of India",
+      "debit": 0,
+      "credit": 15544.93,
+      "balance": 20411.55,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "24-10-23",
+      "sno": "262",
+      "narration": "ICICI Bank Savings Interest",
+      "debit": 1199.43,
+      "credit": 0,
+      "balance": 19212.12,
+      "tax_deduction_category": "Section 80TTA"
+    },
+    {
+      "date": "01-12-23",
+      "sno": "263",
+      "narration": "ICICI Bank Ltd",
+      "debit": 10297.56,
+      "credit": 0,
+      "balance": 8914.56,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "27-11-23",
+      "sno": "264",
+      "narration": "TCS Ltd",
+      "debit": 0,
+      "credit": 51474.9,
+      "balance": 60389.46,
+      "tax_deduction_category": "Taxable income"
+    },
+    {
+      "date": "20-11-23",
+      "sno": "265",
+      "narration": "HDFC ERGO",
+      "debit": 1692.37,
+      "credit": 0,
+      "balance": 58697.09,
+      "tax_deduction_category": "Section 80D"
+    },
+    {
+      "date": "02-06-23",
+      "sno": "266",
+      "narration": "Axis Mutual Fund",
+      "debit": 15534.2,
+      "credit": 0,
+      "balance": 43162.89,
+      "tax_deduction_category": "Section 80C"
+    },
+    {
+      "date": "19-07-23",
+      "sno": "267",
+      "narration": "Consulting Payment - Wipro Ltd",
+      "debit": 0,
+      "credit": 8591,
+      "balance": 34179.08,
+      "tax_deduction_category": "Taxable income"
+    },
+    {
+      "date": "05-04-23",
+      "sno": "632",
+      "narration": "HDFC Bank Ltd",
+      "debit": 0,
+      "credit": 54164.16,
+      "balance": 88343.24,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "02-02-23",
+      "sno": "633",
+      "narration": "Income Tax Department - Govt of India",
+      "debit": 0,
+      "credit": 18955.26,
+      "balance": 107298.5,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "12-03-23",
+      "sno": "634",
+      "narration": "EPFO Withdrawal",
+      "debit": 4809,
+      "credit": 0,
+      "balance": 102489.5,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "23-04-23",
+      "sno": "635",
+      "narration": "Axis Bank Car Loan",
+      "debit": 28399.93,
+      "credit": 0,
+      "balance": 74089.57,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "15-09-23",
+      "sno": "636",
+      "narration": "Max Healthcare",
+      "debit": 19624.99,
+      "credit": 0,
+      "balance": 54464.58,
+      "tax_deduction_category": "Section 80DDB"
+    },
+    {
+      "date": "28-07-23",
+      "sno": "637",
+      "narration": "Adani Power",
+      "debit": 11328.96,
+      "credit": 0,
+      "balance": 43135.62,
+      "tax_deduction_category": "Not deductible"
+    },
+    {
+      "date": "25-03-23",
+      "sno": "638",
+      "narration": "Tata Power Ltd",
+      "debit": 28714.43,
+      "credit": 0,
+      "balance": 14421.19,
+      "tax_deduction_category": "Not deductible"
+    }
+  ]
+}
