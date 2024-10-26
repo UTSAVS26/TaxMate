@@ -7,7 +7,7 @@ function App() {
   const [showPopup, setShowPopup] = useState(false);
   const [selectedOption, setSelectedOption] = useState('');
   const [pdfFile, setPdfFile] = useState(null);
-  const [taxInfo, setTaxInfo] = useState('');
+  const [taxInfo, setTaxInfo] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -15,51 +15,74 @@ function App() {
     setShowPopup(true);
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setLoading(true);
-  //   setError(null);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
 
-  //   try {
-  //     const response = await fetch('https://api.example.com/tax-info'); // Replace with your API endpoint
-  //     if (!response.ok) {
-  //       throw new Error('Failed to fetch tax data');
-  //     }
-  //     const data = await response.json();
-  //     setTaxInfo({
-  //       income: data.income,
-  //       taxableIncome: data.taxableIncome,
-  //       tax: data.tax,
-  //     });
-  //   } catch (err) {
-  //     setError(err.message);
-  //   } finally {
-  //     setLoading(false);
-  //     setShowPopup(false);
-  //   }
-  // };
+    if (!pdfFile || !selectedOption) {
+      setError('Please upload a PDF file and select a regime.');
+      setLoading(false);
+      return;
+    }
+  
+    try {
+      // Step 1: Upload PDF and regime
+      const formData = new FormData();
+      formData.append('file', pdfFile);
+      formData.append('regime', selectedOption);
+  
+      const uploadResponse = await fetch('http://127.0.0.1:5000/upload_pdf_and_regime', { 
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (!uploadResponse.ok) {
+        throw new Error('Failed to upload file and regime');
+      }
+  
+      // Step 2: Get model output after successful upload
+      const modelResponse = await fetch('http://127.0.0.1:5000/get_model_output');
+      if (!modelResponse.ok) {
+        throw new Error('Failed to fetch tax data');
+      }
+  
+      const data = await modelResponse.json();
+      setTaxInfo({
+        income: data.income,
+        taxableIncome: data.taxableIncome,
+        tax: data.tax,
+      });
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+      setShowPopup(false);
+    }
+  };
+  
 
   // Replace the entire try-catch block with this code
-const handleSubmit = (e) => {
-  e.preventDefault();
+// const handleSubmit = (e) => {
+//   e.preventDefault();
 
-  // Hard-coded tax data
-  const hardCodedTaxData = {
-    income: '5,00,000 INR',
-    taxableIncome: '4,00,000 INR',
-    tax: '30,000 INR',
-  };
+//   // Hard-coded tax data
+//   const hardCodedTaxData = {
+//     income: '5,00,000 INR',
+//     taxableIncome: '4,00,000 INR',
+//     tax: '30,000 INR',
+//   };
 
-  // Set the tax information
-  setTaxInfo({
-    income: hardCodedTaxData.income,
-    taxableIncome: hardCodedTaxData.taxableIncome,
-    tax: hardCodedTaxData.tax,
-  });
+//   // Set the tax information
+//   setTaxInfo({
+//     income: hardCodedTaxData.income,
+//     taxableIncome: hardCodedTaxData.taxableIncome,
+//     tax: hardCodedTaxData.tax,
+//   });
 
-  // Hide the popup after submitting
-  setShowPopup(false);
-};
+//   // Hide the popup after submitting
+//   setShowPopup(false);
+// };
 
 
   return (
