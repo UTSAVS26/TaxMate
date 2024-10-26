@@ -8,16 +8,59 @@ function App() {
   const [selectedOption, setSelectedOption] = useState('');
   const [pdfFile, setPdfFile] = useState(null);
   const [taxInfo, setTaxInfo] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleAisReportClick = () => {
     setShowPopup(true);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setTaxInfo(`You have selected the ${selectedOption} and uploaded a file.`);
-    setShowPopup(false);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setLoading(true);
+  //   setError(null);
+
+  //   try {
+  //     const response = await fetch('https://api.example.com/tax-info'); // Replace with your API endpoint
+  //     if (!response.ok) {
+  //       throw new Error('Failed to fetch tax data');
+  //     }
+  //     const data = await response.json();
+  //     setTaxInfo({
+  //       income: data.income,
+  //       taxableIncome: data.taxableIncome,
+  //       tax: data.tax,
+  //     });
+  //   } catch (err) {
+  //     setError(err.message);
+  //   } finally {
+  //     setLoading(false);
+  //     setShowPopup(false);
+  //   }
+  // };
+
+  // Replace the entire try-catch block with this code
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  // Hard-coded tax data
+  const hardCodedTaxData = {
+    income: '5,00,000 INR',
+    taxableIncome: '4,00,000 INR',
+    tax: '30,000 INR',
   };
+
+  // Set the tax information
+  setTaxInfo({
+    income: hardCodedTaxData.income,
+    taxableIncome: hardCodedTaxData.taxableIncome,
+    tax: hardCodedTaxData.tax,
+  });
+
+  // Hide the popup after submitting
+  setShowPopup(false);
+};
+
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -131,10 +174,40 @@ function App() {
           </div>
         )}
 
+        {/* Display Tax Info */}
+        {loading && <p className="text-center text-gray-500">Loading...</p>}
+        {error && <p className="text-center text-red-500">{error}</p>}
         {taxInfo && (
-          <div className="mt-6 bg-white shadow-lg rounded-lg p-4">
-            <h3 className="font-bold">Tax Information:</h3>
-            <p>{taxInfo}</p>
+          <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-green-50 to-teal-100">
+            <div className="bg-white shadow-2xl rounded-xl p-8 max-w-md w-full border-t-4 border-green-500 transform transition duration-500 hover:scale-105">
+              <h3 className="text-2xl font-bold text-green-700 text-center mb-4">Your Tax Profile</h3>
+              <p className="text-gray-600 text-center mb-8">
+                Based on your uploaded document and selected scheme, here's a summary of your tax profile:
+              </p>
+              <div className="space-y-6">
+                <div className="flex items-center justify-between p-4 bg-gray-50 rounded-md shadow-md border-l-4 border-purple-500">
+                  <span className="font-semibold text-gray-800">Financial Year:</span>
+                  <span className="text-gray-700">2024-2025</span>
+                </div>
+                <div className="p-4 bg-gray-50 rounded-md shadow-md border-l-4 border-blue-500">
+                  <h4 className="font-semibold text-gray-800 mb-2">Summary of AIS Details:</h4>
+                  <ul className="space-y-1">
+                    <li className="flex items-center">
+                      <span className="font-semibold text-gray-700 mr-2">Income:</span>
+                      <span className="text-gray-600">₹{taxInfo.income}</span>
+                    </li>
+                    <li className="flex items-center">
+                      <span className="font-semibold text-gray-700 mr-2">Taxable Income:</span>
+                      <span className="text-gray-600">₹{taxInfo.taxableIncome}</span>
+                    </li>
+                    <li className="flex items-center">
+                      <span className="font-semibold text-gray-700 mr-2">Tax:</span>
+                      <span className="text-gray-600">₹{taxInfo.tax}</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         )}
       </main>
