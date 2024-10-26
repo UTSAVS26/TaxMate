@@ -63,7 +63,7 @@ function App() {
             </button>
             <button 
               className="flex items-center bg-green-500 text-white px-8 py-4 rounded-lg hover:bg-green-600 transition duration-200 text-lg"
-              onClick={() => window.open('https://www.lex.com', '_blank')}
+              onClick={() => window.open('http://127.0.0.1:5000/', '_blank')}
             >
               <FaComments className="mr-2" /> Chat with Lex
             </button>
