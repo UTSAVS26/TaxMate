@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-CHATBOT_MODEL_PATH = os.path.join('server', 'chatbot_model.pkl')
+CHATBOT_MODEL_PATH = os.path.join('chatbot_model.pkl')
 chatbot_model = joblib.load(CHATBOT_MODEL_PATH)
 
 @app.route('/')
